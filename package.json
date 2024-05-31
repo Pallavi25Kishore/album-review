@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "dev": "webpack serve",
-    "build": "webpack",
+    "client": "webpack",
     "server": "node server/index.js"
   },
   "repository": {
