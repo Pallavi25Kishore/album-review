@@ -2,7 +2,7 @@
 
 ## You got this! I believe in you!!!
 
-## On load, you should see all of your reviewed albums as well as:
+## On load, you should see a list of reviewed albums as well as:
 - A title for the website
 - A button to add a review
 
