@@ -16,7 +16,7 @@
 ### Clicking on ADD A REVIEW should open a form with:
 - A text input for the album
 - An input for rating (preferably radio buttons)
-- A text for review that is limited to 250 characters
+- A text input for a review that is limited to 250 characters
 - A submit button
 
 #### Create for MongoDB then delete and create for MySQL (then start over!)
