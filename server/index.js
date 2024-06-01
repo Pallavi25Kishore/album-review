@@ -18,6 +18,16 @@ app.get('/album', (req, res) => {
   });
 });
 
+app.post('/album', (req, res) => {
+  model.postAlbum(req.body)
+  .then((response) => {
+    res.status(201).send('album saved');
+  })
+  .catch((err) => {
+    res.status(400).send(err);
+  });
+});
+
 app.get('/review', (req, res) => {
   model.getAllReviews()
   .then((response) => {
@@ -31,7 +41,7 @@ app.get('/review', (req, res) => {
 app.post('/review', (req, res) => {
   model.postReview(req.body)
   .then((response) => {
-    res.status(201).send('data saved');
+    res.status(201).send('review saved');
   })
   .catch((err) => {
     res.status(400).send(err);

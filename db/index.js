@@ -38,6 +38,10 @@ exports.getAllAlbums = () => {
   return Name.find({});
 };
 
+exports.postAlbum = (album) => {
+  return new Name(album).save();
+}
+
 exports.getAllReviews = () => {
   return Review.find({}).sort('-rating').exec();
 };
