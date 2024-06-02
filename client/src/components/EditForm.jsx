@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EditForm = ({review, showEditForm, sendEditFormData}) => {
+const EditForm = ({review, showEditForm, sendEditFormData, setShowEditForm}) => {
 
   const handleFormSubmit = (event) => {
    event.preventDefault();
@@ -8,6 +8,8 @@ const EditForm = ({review, showEditForm, sendEditFormData}) => {
    const formData = new FormData(form);
    const formJson = Object.fromEntries(formData.entries());
    sendEditFormData(review['_id'], review.name, formJson.rating, formJson.comment);
+   setShowEditForm(!setShowEditForm);
+
   }
 
   return (

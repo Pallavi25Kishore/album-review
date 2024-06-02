@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import EditForm from './EditForm.jsx';
 
 
-const ReviewItem = ({review, handleDeleteButton, handleEditButton, showEditForm, sendEditFormData}) => {
+const ReviewItem = ({review, handleDeleteButton, sendEditFormData}) => {
+
+  const [showEditForm, setShowEditForm] = useState(false);
+
+  const handleEditButton = (event) => {
+    event.preventDefault();
+    setShowEditForm(!showEditForm);
+  };
 
   return (
     <div>
@@ -12,7 +19,7 @@ const ReviewItem = ({review, handleDeleteButton, handleEditButton, showEditForm,
       <button onClick={handleEditButton}>EDIT</button>
       <button onClick={(e) => { e.preventDefault(); handleDeleteButton(review['_id'])}}>DELETE</button>
       <br></br>
-      <EditForm review={review} sendEditFormData={sendEditFormData} showEditForm={showEditForm}/>
+      <EditForm review={review} sendEditFormData={sendEditFormData} showEditForm={showEditForm} setShowEditForm={setShowEditForm}/>
     </div>
   )
 

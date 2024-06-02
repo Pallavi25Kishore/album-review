@@ -10,7 +10,7 @@ const App = () => {
   const [albums, setAlbums] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [showForm, setShowForm] = useState(false);
-  const [showEditForm, setShowEditForm] = useState(false);
+
 
   const getReviews = () => {
     axios.get('/review')
@@ -47,7 +47,6 @@ const App = () => {
   })
   .then((response)=> {
     setReviews(response.data);
-    setShowForm(!showForm);
   })
   .catch((err) => {
     console.log('error from posting/getting review data', err);
@@ -88,10 +87,7 @@ const App = () => {
     })
   };
 
-  const handleEditButton = (event) => {
-    event.preventDefault();
-    setShowEditForm(!showEditForm);
-  };
+
 
   const sendEditFormData = (index, name, rating, comment) => {
       axios.put(`/review/${index}`, {name: name, rating: rating, comment: comment})
@@ -100,7 +96,6 @@ const App = () => {
       })
       .then((response) => {
         setReviews(response.data);
-        setShowEditForm(!showEditForm);
       })
       .catch((err) => {
         console.log('error in editing', err);
@@ -111,8 +106,8 @@ const App = () => {
     <div>
     <Heading />
     <AddButton handleAddButtonClick={handleAddButtonClick}/>
-    <Form showForm={showForm} sendFormData={sendFormData}/>
-    <AlbumList albums={albums} reviews={reviews} handleDeleteButton={handleDeleteButton} handleEditButton={handleEditButton} sendEditFormData={sendEditFormData} showEditForm={showEditForm}/>
+    <Form showForm={showForm} sendFormData={sendFormData} setShowForm={setShowForm}/>
+    <AlbumList albums={albums} reviews={reviews} handleDeleteButton={handleDeleteButton} sendEditFormData={sendEditFormData} />
     </div>
   );
 

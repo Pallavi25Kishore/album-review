@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Form = ({showForm, sendFormData}) => {
+const Form = ({showForm, setShowForm, sendFormData}) => {
 
  const handleFormSubmit = (event) => {
   event.preventDefault();
@@ -8,6 +8,7 @@ const Form = ({showForm, sendFormData}) => {
   const formData = new FormData(form);
   const formJson = Object.fromEntries(formData.entries());
   sendFormData(formJson.name, formJson.rating, formJson.comment);
+  setShowForm(!setShowForm);
  }
 
  return (
